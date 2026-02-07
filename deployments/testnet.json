@@ -1,0 +1,36 @@
+{
+  "network": "testnet",
+  "networkPassphrase": "Test SDF Network ; September 2015",
+  "horizonUrl": "https://horizon-testnet.stellar.org",
+  "sorobanUrl": "https://soroban-testnet.stellar.org",
+  "deployed_at": "2026-02-05",
+  "version": "2.0.0",
+  "contracts": {
+    "sxlm_token": {
+      "address": "CDTWBLUQAEXAQ6JWYZUS7ZTBFWCVBGZA5XYTTJ7C25QJX7PBTZNL6BDF",
+      "name": "Staked XLM",
+      "symbol": "sXLM",
+      "decimals": 7,
+      "wasmHash": "b5170e4bd79428c8774a14cd50b0179db908765f30d886aad73de16fefcec5f2"
+    },
+    "vault": {
+      "address": "CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV",
+      "wasmHash": "289583980542c9488663a26be462af9d22465d522f9672ae77da723954d3bc88"
+    },
+    "xlm_native_sac": {
+      "address": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC"
+    }
+  },
+  "admin": "GAUBEVSJBCR3LYNIK2JUQYWNEFLE43E73MBD3ZEXL6Q43EPHSERZXVNY",
+  "explorer_links": {
+    "sxlm_token": "https://stellar.expert/explorer/testnet/contract/CDTWBLUQAEXAQ6JWYZUS7ZTBFWCVBGZA5XYTTJ7C25QJX7PBTZNL6BDF",
+    "vault": "https://stellar.expert/explorer/testnet/contract/CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV"
+  },
+  "features": {
+    "ttlManagement": true,
+    "reentrancyProtection": true,
+    "depositCaps": true,
+    "slippageProtection": true,
+    "upgradeable": true
+  }
+}
