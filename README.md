@@ -1,238 +1,290 @@
-# sxlm-liquid-staking
+# sXLM Protocol — Liquid Staking for Stellar
 
-First liquid staking primitive on Stellar.  
-Stake XLM → Receive sXLM → Earn real DeFi yield from Soroswap LP.
+**First liquid staking primitive on Stellar**
 
-Built on Soroban smart contracts and deployed live on Stellar Testnet.
+Stake XLM → Receive **sXLM** → Earn real DeFi yield (Soroswap LP, future strategies)
 
-```markdown
-# sXLM Protocol v2 - Liquid Staking for Stellar
+Built using **Soroban smart contracts** and deployed live on **Stellar Testnet**.
 
-sXLM is the first liquid staking protocol on Stellar, enabling users to earn yield on their XLM while maintaining full liquidity.
+---
 
-## Testnet Contracts
+## 🔗 Live Links
 
-**Vault**  
-CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV  
-https://stellar.expert/explorer/testnet/contract/CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV
+- **Frontend (Vercel):** https://sxlm-protocol.vercel.app  
+- **Demo Video & Screenshots:**  
+  https://drive.google.com/drive/folders/1NczpFcz6QtTxHKyBg41CnNVptjTE2UMG
 
-**sXLM Token**  
-CDTWBLUQAEXAQ6JWYZUS7ZTBFWCVBGZA5XYTTJ7C25QJX7PBTZNL6BDF  
-https://stellar.expert/explorer/testnet/contract/CDTWBLUQAEXAQ6JWYZUS7ZTBFWCVBGZA5XYTTJ7C25QJX7PBTZNL6BDF
+---
 
-## Why This Project Matters
+## 📌 Overview
 
-Stellar currently has no native liquid staking primitive.
+`sXLM` is the **first liquid staking protocol on Stellar**, allowing users to earn yield on their XLM **without locking liquidity**.
 
-sXLM introduces:
-- First liquid staking solution on Stellar
-- Conversion of idle XLM into productive DeFi capital
-- Composability with sXLM (lending, LP, derivatives)
-- TVL growth for the Stellar and Soroban ecosystem
-- Foundation for advanced yield strategies
+Users deposit XLM into a vault and receive **sXLM**, a yield-bearing receipt token whose value increases as yield accrues.  
+sXLM remains fully composable across the Stellar DeFi ecosystem.
 
-This serves as a foundational building block for DeFi on Stellar.
+---
 
-## Features
+## 🚀 Why This Project Matters
 
-- Liquid Staking: Deposit XLM, receive sXLM tokens
-- Yield-Bearing: sXLM value increases as yield accrues
-- Instant Withdrawals: No lock-up period
-- Security: Reentrancy protection, deposit caps, TTL management
-- Slippage Protection: Optional min output parameters
-- Upgradeable: Admin can upgrade contracts
+Stellar currently has **no native liquid staking primitive**.
 
-## Architecture
+`sXLM` introduces:
 
-```
-                ┌────────────┐
-                │   User     │
-                └─────┬──────┘
-                      │ deposit XLM
-                      ▼
-               ┌──────────────┐
-               │    Vault     │ ────────► Yield Strategies (future: Blend, Soroswap LP)
-               └─────┬────────┘
-                     │ mint / burn
-                     ▼
-                ┌──────────┐
-                │  sXLM    │  (yield-bearing receipt token)
-                └──────────┘
-                     ▲
-                     │ withdraw → more XLM + yield
-```
+- ✅ First liquid staking solution on Stellar  
+- ✅ Converts idle XLM into productive DeFi capital  
+- ✅ Fully composable receipt token (LPs, lending, derivatives)  
+- ✅ Drives TVL growth for Stellar & Soroban  
+- ✅ Foundation for advanced yield strategies  
 
-1. User deposits XLM → Vault mints sXLM at current exchange rate
-2. XLM is deployed to yield-generating strategies
-3. Yield accrues → exchange rate increases → sXLM becomes more valuable
-4. User burns sXLM → receives original XLM + proportional yield
+**This protocol is a core DeFi building block for Stellar.**
 
-## How It Works
+---
 
-```
-┌─────────────┐      deposit XLM      ┌──────────────────┐
-│    User     │ ───────────────────►  │      Vault       │
-└─────────────┘                       └────────┬─────────┘
-       ▲                                       │
-       │ receive sXLM                          ▼
-       │                              ┌──────────────────┐
-       └───────────────────────────── │  Yield Accrues   │
-                                      └──────────────────┘
-```
+## ✨ Key Features
 
-### Exchange Rate Example
+- **Liquid Staking** — Deposit XLM, receive sXLM instantly  
+- **Yield-Bearing Token** — sXLM value increases over time  
+- **Instant Withdrawals** — No lock-ups or unbonding period  
+- **Slippage Protection** — Optional `min_out` parameters  
+- **Upgradeable Contracts** — Admin-controlled upgrades  
+- **Security First** — Reentrancy guards, caps, pausing  
+
+---
+
+## 🧠 High-Level Architecture
+
+            ┌────────────┐
+            │   User     │
+            └─────┬──────┘
+                  │ deposit XLM
+                  ▼
+           ┌──────────────┐
+           │    Vault     │ ─────► Yield Strategies
+           └─────┬────────┘        (Soroswap LP, Blend*)
+                 │ mint / burn
+                 ▼
+            ┌──────────┐
+            │  sXLM    │  Yield-bearing receipt token
+            └──────────┘
+                 ▲
+                 │ withdraw
+                 ▼
+              XLM + Yield
+
+
+---
+
+## ⚙️ How It Works
+
+1. User deposits XLM into the **Vault**
+2. Vault mints sXLM based on the current exchange rate
+3. XLM is deployed to yield-generating strategies
+4. Yield accrues → exchange rate increases
+5. User burns sXLM → receives XLM + proportional yield
+
+---
+
+## 📈 Exchange Rate Example
 
 | Time     | Total sXLM | Total XLM | Exchange Rate | 100 sXLM Worth |
 |----------|------------|-----------|---------------|----------------|
-| Day 0    | 100        | 100 XLM   | 1.00          | 100 XLM        |
-| Month 6  | 100        | 105 XLM   | 1.05          | 105 XLM        |
-| Year 1   | 100        | 110 XLM   | 1.10          | 110 XLM        |
+| Day 0    | 100        | 100       | 1.00          | 100 XLM        |
+| Month 6  | 100        | 105       | 1.05          | 105 XLM        |
+| Year 1   | 100        | 110       | 1.10          | 110 XLM        |
 
-## Screenshots of the dApp
+---
 
-**Wallet Connection & Dashboard**  
-<img width="2938" alt="Wallet Connection" src="https://github.com/user-attachments/assets/98735a3a-33f1-4708-a9df-10c974da3e30">
+## 🧪 Live Testnet Deployment
 
-**Unstake Screen**  
-<img width="2940" alt="Unstake Screen" src="https://github.com/user-attachments/assets/c8ffed64-6420-4f67-9589-2c67735f70e1">
+### Contracts
 
-## Live Protocol Metrics (Testnet)
+| Contract | Address |
+|--------|--------|
+| **Vault** | `CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV` |
+| **sXLM Token** | `CDTWBLUQAEXAQ6JWYZUS7ZTBFWCVBGZA5XYTTJ7C25QJX7PBTZNL6BDF` |
+| **XLM SAC** | `CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC` |
 
-- TVL: Live and updating on testnet
-- Exchange Rate: Auto-increasing with simulated yield
-- Deposit + Withdraw: Fully functional via Freighter
-- Unit Tests: 18 tests passing (100% coverage on core logic)
-- Real Soroban Transactions: Executed on Stellar testnet
+### Explorer Links
 
-All core functionality is live and verifiable.
+- Vault: https://stellar.expert/explorer/testnet/contract/CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV  
+- sXLM: https://stellar.expert/explorer/testnet/contract/CDTWBLUQAEXAQ6JWYZUS7ZTBFWCVBGZA5XYTTJ7C25QJX7PBTZNL6BDF  
 
-## Quick Start
+---
+
+## 📊 Protocol Status (Testnet)
+
+- TVL: Live and updating  
+- Exchange Rate: Auto-increasing (simulated yield)  
+- Wallet Support: Freighter  
+- Transactions: Real Soroban transactions on testnet  
+- Tests: **18/18 passing** (100% core logic coverage)
+
+---
+
+## 🖼️ dApp Screenshots
+
+### Wallet Connection & Dashboard
+<img width="2938" src="https://github.com/user-attachments/assets/98735a3a-33f1-4708-a9df-10c974da3e30" />
+
+### Unstake Screen
+<img width="2940" src="https://github.com/user-attachments/assets/c8ffed64-6420-4f67-9589-2c67735f70e1" />
+
+---
+
+## 🛠️ Quick Start
 
 ### Prerequisites
 
-- Rust with `wasm32-unknown-unknown` target
+- Rust (`wasm32-unknown-unknown`)
 - Stellar CLI v25+
-- Freighter Wallet (for frontend interaction)
+- Freighter Wallet
+- Node.js (for frontend)
 
-### Build Contracts
+---
+
+## 🛠️ Build Contracts
+
+Clone the repository and compile the Soroban smart contracts.
 
 ```bash
-git clone https://github.com/ANSHSINGH5999/sxlm-liquid-staking
+git clone https://github.com/ANSHSINGH5999/sxlm-liquid-staking.git
 cd sxlm-liquid-staking
+```
 
+Build the contracts for the wasm32-unknown-unknown target:
+```
 cargo build --release --target wasm32-unknown-unknown
-
-stellar contract optimize --wasm target/wasm32-unknown-unknown/release/sxlm_token.wasm
-stellar contract optimize --wasm target/wasm32-unknown-unknown/release/vault.wasm
+```
+Build the contracts for the wasm32-unknown-unknown target:
+```
+cargo build --release --target wasm32-unknown-unknown
 ```
 
-### Run Tests
+Optimize the compiled WASM files for deployment:
+```
+stellar contract optimize \
+  --wasm target/wasm32-unknown-unknown/release/sxlm_token.wasm
 
-```bash
+stellar contract optimize \
+  --wasm target/wasm32-unknown-unknown/release/vault.wasm
+```
+---
+## 🧪 Run Tests
+
+Run the full test suite for the protocol:
+```
 cargo test
-# 18 tests passing
 ```
 
-### Run Frontend Locally
+18 tests passing
 
-```bash
+100% coverage on core vault logic
+---
+## 🌐 Run Frontend Locally
+
+Navigate to the frontend directory and start the development server.
+```
 cd frontend
 npm install
 npm run dev
-# Open http://localhost:3000
 ```
 
-## Testnet Deployment
+Open the app in your browser:
+```
+http://localhost:3000
+```
+---
+## 🧩 CLI Usage
 
-| Contract     | Address                                                                 |
-|--------------|-------------------------------------------------------------------------|
-| Vault        | CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV               |
-| sXLM Token   | CDTWBLUQAEXAQ6JWYZUS7ZTBFWCVBGZA5XYTTJ7C25QJX7PBTZNL6BDF             |
-| XLM SAC      | CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC             |
+Interact with the protocol directly using the provided scripts.
 
-**Explorer Links**  
-- Vault: https://stellar.expert/explorer/testnet/contract/CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV  
-- sXLM Token: https://stellar.expert/explorer/testnet/contract/CDTWBLUQAEXAQ6JWYZUS7ZTBFWCVBGZA5XYTTJ7C25QJX7PBTZNL6BDF
-
-## CLI Usage
-
-```bash
-# View protocol stats
+View protocol statistics:
+```
 ./scripts/interact.sh stats
+```
 
-# Deposit 100 XLM
+Deposit XLM into the vault:
+```
 ./scripts/interact.sh deposit-xlm 100
+```
 
-# Check balances
+Check balances:
+```
 ./scripts/interact.sh balance
+```
 
-# Withdraw 50 sXLM
+Withdraw sXLM from the vault:
+```
 ./scripts/interact.sh withdraw-xlm 50
+```
 
-# Add yield (admin only)
+Add yield to the vault (admin only):
+```
 ./scripts/interact.sh add-yield 100000000
 ```
+---
+## Contract Interfaces 
 
-## Contract Functions
+| Function                    | Description                       |
+| --------------------------- | --------------------------------- |
+| deposit(user, amount)       | Deposit XLM and receive sXLM      |
+| deposit_with_min_out        | Deposit with slippage protection  |
+| withdraw(user, sxlm_amount) | Burn sXLM and receive XLM         |
+| withdraw_with_min_out       | Withdraw with slippage protection |
+| preview_deposit             | Preview sXLM output               |
+| preview_withdraw            | Preview XLM output                |
+| get_exchange_rate           | Current sXLM → XLM rate           |
+| get_total_assets            | Total XLM in vault                |
+| add_yield                   | Add yield (admin)                 |
+| pause / unpause             | Emergency controls                |
+| set_max_deposit             | Set deposit cap                   |
+| upgrade                     | Upgrade contract                  |
 
-### Vault
+---
 
-| Function                        | Description                              |
-|---------------------------------|------------------------------------------|
-| deposit(user, amount)           | Deposit XLM, receive sXLM                |
-| deposit_with_min_out(...)       | Deposit with slippage protection         |
-| withdraw(user, sxlm_amount)     | Burn sXLM, receive XLM + yield           |
-| withdraw_with_min_out(...)      | Withdraw with slippage protection        |
-| get_exchange_rate()             | Current sXLM → XLM rate                  |
-| get_total_assets()              | Total XLM in vault                       |
-| preview_deposit(amount)         | Preview sXLM for XLM                     |
-| preview_withdraw(amount)        | Preview XLM for sXLM                     |
-| add_yield(amount)               | Add yield (admin)                        |
-| pause() / unpause()             | Emergency controls (admin)               |
-| set_max_deposit(amount)         | Set deposit cap (admin)                  |
-| upgrade(wasm_hash)              | Upgrade contract (admin)                 |
+## sXLM Token Contract (SEP-41)
 
-### sXLM Token
+| Function     | Description            |
+| ------------ | ---------------------- |
+| mint         | Mint sXLM (vault only) |
+| burn         | Burn sXLM (vault only) |
+| total_supply | Total sXLM supply      |
+---
 
-Standard SEP-41 token interface plus:
+## 🔐 Security Features
 
-| Function          | Description              |
-|-------------------|--------------------------|
-| mint(to, amount)  | Mint sXLM (vault only)   |
-| burn(from, amount)| Burn sXLM (vault only)   |
-| total_supply()    | Get total sXLM supply    |
+Reentrancy protection
 
-## Security Features
+Deposit caps and TVL limits
 
-| Feature                | Description                              |
-|------------------------|------------------------------------------|
-| Reentrancy Guard       | Prevents reentrancy attacks              |
-| Deposit Caps           | Max single deposit + total TVL cap       |
-| Min Amount Check       | Minimum 0.1 XLM/sXLM                     |
-| Slippage Protection    | Optional min_out parameters              |
-| TTL Management         | Automatic storage extension              |
-| Pausable               | Emergency pause/unpause                  |
-| Overflow Protection    | checked_add / checked_mul everywhere     |
+Minimum deposit and withdrawal checks
 
-## Future Vision
+Optional slippage protection
 
-- Mainnet deployment
-- Integration with Soroswap and Blend
-- Lending using sXLM as collateral
-- Mobile wallet support
-- DAO governance for yield strategies
-- Cross-chain yield opportunities
+Pausable contracts for emergencies
 
-**Goal**: Become the default liquid staking primitive on Stellar.
+Checked arithmetic to prevent overflows
 
-## License
+Automatic TTL extension for storage
 
-MIT
-```
+---
+## 🔮 Future Roadmap
 
-**Frontend (Vercel):**  
-https://sxlm-protocol.vercel.app/
+Stellar mainnet deployment
 
-** Video link and Images **
-https://drive.google.com/drive/folders/1NczpFcz6QtTxHKyBg41CnNVptjTE2UMG?usp=share_link
+Soroswap LP integration
 
+Blend protocol integration
+
+Lending using sXLM as collateral
+
+DAO governance for yield strategies
+
+Mobile wallet support
+
+Cross-chain yield opportunities
+---
+🏁 Goal
+
+Become the default liquid staking primitive on Stellar.
