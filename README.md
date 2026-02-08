@@ -234,5 +234,3 @@ This version:
 - Removes all broken spacing and repeated lines
 - Keeps professional tone
 - Preserves every piece of technical content
-
-You can copy-paste this directly into your repository.
