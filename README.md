@@ -236,5 +236,3 @@ This version:
 - Preserves every piece of technical content
 
 You can copy-paste this directly into your repository.
-
-If you want to add anything (video link, GitHub repo name, team credits, etc.) just tell me.
