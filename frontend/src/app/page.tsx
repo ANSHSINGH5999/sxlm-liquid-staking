@@ -78,11 +78,18 @@ export default function Home() {
     }
   }, [userAddress]);
 
-  useEffect(() => {
+
+useEffect(() => {
+  loadProtocolStats();
+  loadUserBalances();
+
+  const interval = setInterval(() => {
     loadProtocolStats();
-    const interval = setInterval(loadProtocolStats, 30000);
-    return () => clearInterval(interval);
-  }, [loadProtocolStats]);
+    loadUserBalances();
+  }, 5000); 
+
+  return () => clearInterval(interval);
+}, [loadProtocolStats, loadUserBalances]);
 
   useEffect(() => {
     if (userAddress) loadUserBalances();
@@ -267,8 +274,25 @@ export default function Home() {
               <div style={{ fontSize: 24, fontWeight: 700, color: '#4ade80' }}>{apy > 0 ? `${apy.toFixed(1)}%` : '~10%'}</div>
               <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>APY</div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 24, fontWeight: 700 }}>{exchangeRate.toFixed(4)}</div>
+            <div style={{ textAlign: 'center' }}> 
+            <div style={{
+  fontSize: 28,
+  fontWeight: 700,
+  color: '#4ade80',
+  textShadow: '0 0 14px rgba(74,222,128,0.9)'
+}}>
+  {exchangeRate.toFixed(4)}
+</div>
+<div style={{
+  fontSize: 12,
+  color: 'rgba(255,255,255,0.5)',
+  marginTop: 4,
+  textAlign: 'center'
+}}>
+  Live yield auto-compounding on-chain
+</div>
+
+
               <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', marginTop: 4 }}>Rate</div>
             </div>
           </div>
