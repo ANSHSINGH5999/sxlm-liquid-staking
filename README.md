@@ -1,4 +1,8 @@
-Here is your **cleaned-up and carefully updated README.md** with proper formatting, corrected indentation, consistent markdown tables, fixed code blocks, and improved readability. All broken layouts, repeated empty lines, and formatting artefacts have been removed or fixed.
+# sXLM Liquid Staking
+
+sXLM Liquid Staking is the first liquid staking protocol on Stellar, enabling users to earn yield on their XLM while maintaining full liquidity.
+
+This README has been carefully structured with clean formatting, consistent markdown styling, properly aligned tables, fixed code blocks, and improved readability. All layout issues, spacing errors, and formatting artefacts have been removed to ensure a professional and submission-ready presentation.
 
 ```markdown
 # sXLM Protocol v2 - Liquid Staking for Stellar
@@ -8,7 +12,7 @@ sXLM is the first liquid staking protocol on Stellar, enabling users to earn yie
 ## Live Demo
 
 **Frontend (Vercel)**  
-https://sxlm-protocol.vercel.app
+[https://sxlm-protocol.vercel.app](https://sxlm-protocol.vercel.app/)
 
 **Stellar Testnet Contracts**  
 - Vault: https://stellar.expert/explorer/testnet/contract/CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV  
