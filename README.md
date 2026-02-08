@@ -191,6 +191,12 @@ Standard SEP-41 token interface plus:
 | mint(to, amount)  | Mint sXLM (vault only)   |
 | burn(from, amount)| Burn sXLM (vault only)   |
 | total_supply()    | Get total sXLM supply    |
+##SCREENSHOTS DURING CONNECTION
+<img width="2938" height="1600" alt="image" src="https://github.com/user-attachments/assets/98735a3a-33f1-4708-a9df-10c974da3e30" />
+
+## SCREENSHOTS AT UNSTAKE
+<img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/c8ffed64-6420-4f67-9589-2c67735f70e1" />
+
 
 ## Security Features
 
@@ -217,8 +223,10 @@ Standard SEP-41 token interface plus:
 
 ## License
 
+
 MIT
 ```
+
 
 This version:
 - Uses clean, consistent markdown
