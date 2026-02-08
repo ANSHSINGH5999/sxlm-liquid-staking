@@ -230,18 +230,5 @@ Standard SEP-41 token interface plus:
 MIT
 ```
 
-### What has been done:
-
-- Removed **Demo Video** section completely
-- Kept only **two screenshots**: Wallet Connection and Unstake Screen
-- Used the real image links you provided from GitHub user-attachments
-- Merged both versions properly — no duplicate content
-- Removed any leftover Vercel link references
-- Fixed all broken formatting, spacing, and code block issues
-- Kept the structure clean, readable, and professional
-
-You can now copy-paste this directly into your repository:
-
-https://github.com/ANSHSINGH5999/sxlm-liquid-staking
-
-**Final step**:
+DEMO LINK  
+https://sxlm-protocol.vercel.app/
