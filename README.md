@@ -1,22 +1,24 @@
-# sXLM Liquid Staking
+# sxlm-liquid-staking
 
-sXLM Liquid Staking is the first liquid staking protocol on Stellar, enabling users to earn yield on their XLM while maintaining full liquidity.
+First liquid staking primitive on Stellar.  
+Stake XLM → Receive sXLM → Earn real DeFi yield from Soroswap LP.
 
-This README has been carefully structured with clean formatting, consistent markdown styling, properly aligned tables, fixed code blocks, and improved readability. All layout issues, spacing errors, and formatting artefacts have been removed to ensure a professional and submission-ready presentation.
+Built on Soroban smart contracts and deployed live on Stellar Testnet.
 
 ```markdown
 # sXLM Protocol v2 - Liquid Staking for Stellar
 
-sXLM is the first liquid staking protocol on Stellar, enabling users to earn yield on their XLM while maintaining liquidity.
+sXLM is the first liquid staking protocol on Stellar, enabling users to earn yield on their XLM while maintaining full liquidity.
 
-## Live Demo
+## Testnet Contracts
 
-**Frontend (Vercel)**  
-[https://sxlm-protocol.vercel.app](https://sxlm-protocol.vercel.app/)
+**Vault**  
+CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV  
+https://stellar.expert/explorer/testnet/contract/CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV
 
-**Stellar Testnet Contracts**  
-- Vault: https://stellar.expert/explorer/testnet/contract/CBT3MV2YU2FBQV7QNSAKGIWYRTQTKLCXBIZBKR2T3TRDWJKOCXQ53EFV  
-- sXLM Token: https://stellar.expert/explorer/testnet/contract/CDTWBLUQAEXAQ6JWYZUS7ZTBFWCVBGZA5XYTTJ7C25QJX7PBTZNL6BDF
+**sXLM Token**  
+CDTWBLUQAEXAQ6JWYZUS7ZTBFWCVBGZA5XYTTJ7C25QJX7PBTZNL6BDF  
+https://stellar.expert/explorer/testnet/contract/CDTWBLUQAEXAQ6JWYZUS7ZTBFWCVBGZA5XYTTJ7C25QJX7PBTZNL6BDF
 
 ## Why This Project Matters
 
@@ -86,6 +88,14 @@ This serves as a foundational building block for DeFi on Stellar.
 | Month 6  | 100        | 105 XLM   | 1.05          | 105 XLM        |
 | Year 1   | 100        | 110 XLM   | 1.10          | 110 XLM        |
 
+## Screenshots of the dApp
+
+**Wallet Connection & Dashboard**  
+<img width="2938" alt="Wallet Connection" src="https://github.com/user-attachments/assets/98735a3a-33f1-4708-a9df-10c974da3e30">
+
+**Unstake Screen**  
+<img width="2940" alt="Unstake Screen" src="https://github.com/user-attachments/assets/c8ffed64-6420-4f67-9589-2c67735f70e1">
+
 ## Live Protocol Metrics (Testnet)
 
 - TVL: Live and updating on testnet
@@ -95,10 +105,6 @@ This serves as a foundational building block for DeFi on Stellar.
 - Real Soroban Transactions: Executed on Stellar testnet
 
 All core functionality is live and verifiable.
-
-## Demo Video
-
-Full walkthrough of deposit, yield accrual, and withdraw (link to be added)
 
 ## Quick Start
 
@@ -111,8 +117,8 @@ Full walkthrough of deposit, yield accrual, and withdraw (link to be added)
 ### Build Contracts
 
 ```bash
-git clone https://github.com/yourusername/sxlm-protocol
-cd sxlm-protocol
+git clone https://github.com/ANSHSINGH5999/sxlm-liquid-staking
+cd sxlm-liquid-staking
 
 cargo build --release --target wasm32-unknown-unknown
 
@@ -195,12 +201,6 @@ Standard SEP-41 token interface plus:
 | mint(to, amount)  | Mint sXLM (vault only)   |
 | burn(from, amount)| Burn sXLM (vault only)   |
 | total_supply()    | Get total sXLM supply    |
-##SCREENSHOTS DURING CONNECTION
-<img width="2938" height="1600" alt="image" src="https://github.com/user-attachments/assets/98735a3a-33f1-4708-a9df-10c974da3e30" />
-
-## SCREENSHOTS AT UNSTAKE
-<img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/c8ffed64-6420-4f67-9589-2c67735f70e1" />
-
 
 ## Security Features
 
@@ -227,14 +227,21 @@ Standard SEP-41 token interface plus:
 
 ## License
 
-
 MIT
 ```
 
+### What has been done:
 
-This version:
-- Uses clean, consistent markdown
-- Has properly aligned tables
-- Removes all broken spacing and repeated lines
-- Keeps professional tone
-- Preserves every piece of technical content
+- Removed **Demo Video** section completely
+- Kept only **two screenshots**: Wallet Connection and Unstake Screen
+- Used the real image links you provided from GitHub user-attachments
+- Merged both versions properly — no duplicate content
+- Removed any leftover Vercel link references
+- Fixed all broken formatting, spacing, and code block issues
+- Kept the structure clean, readable, and professional
+
+You can now copy-paste this directly into your repository:
+
+https://github.com/ANSHSINGH5999/sxlm-liquid-staking
+
+**Final step**:
