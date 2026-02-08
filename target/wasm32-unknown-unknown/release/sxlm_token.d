@@ -1,1 +1,0 @@
-/Users/rudranshg/sxlm-protocol/target/wasm32-unknown-unknown/release/sxlm_token.wasm: /Users/rudranshg/sxlm-protocol/contracts/sxlm-token/src/lib.rs /Users/rudranshg/sxlm-protocol/contracts/sxlm-token/src/test.rs
