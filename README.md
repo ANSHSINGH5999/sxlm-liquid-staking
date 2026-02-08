@@ -230,5 +230,6 @@ Standard SEP-41 token interface plus:
 MIT
 ```
 
-DEMO LINK  
+**Frontend (Vercel):**  
 https://sxlm-protocol.vercel.app/
+
