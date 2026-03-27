@@ -16,7 +16,7 @@ Built using **Soroban smart contracts** and deployed live on **Stellar Testnet**
 
 ---
 
-## 📌 Overview
+##  Overview
 
 `sXLM` is the **first liquid staking protocol on Stellar**, allowing users to earn yield on their XLM **without locking liquidity**.
 
@@ -25,23 +25,23 @@ sXLM remains fully composable across the Stellar DeFi ecosystem.
 
 ---
 
-## 🚀 Why This Project Matters
+##  Why This Project Matters
 
 Stellar currently has **no native liquid staking primitive**.
 
 `sXLM` introduces:
 
-- ✅ First liquid staking solution on Stellar  
-- ✅ Converts idle XLM into productive DeFi capital  
-- ✅ Fully composable receipt token (LPs, lending, derivatives)  
-- ✅ Drives TVL growth for Stellar & Soroban  
-- ✅ Foundation for advanced yield strategies  
+-  First liquid staking solution on Stellar  
+-  Converts idle XLM into productive DeFi capital  
+-  Fully composable receipt token (LPs, lending, derivatives)  
+-  Drives TVL growth for Stellar & Soroban  
+-  Foundation for advanced yield strategies  
 
 **This protocol is a core DeFi building block for Stellar.**
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - **Liquid Staking** — Deposit XLM, receive sXLM instantly  
 - **Yield-Bearing Token** — sXLM value increases over time  
@@ -52,7 +52,7 @@ Stellar currently has **no native liquid staking primitive**.
 
 ---
 
-## 🧠 High-Level Architecture
+## High-Level Architecture
 
             ┌────────────┐
             │   User     │
@@ -75,7 +75,7 @@ Stellar currently has **no native liquid staking primitive**.
 
 ---
 
-## ⚙️ How It Works
+##  How It Works
 
 1. User deposits XLM into the **Vault**
 2. Vault mints sXLM based on the current exchange rate
@@ -85,7 +85,7 @@ Stellar currently has **no native liquid staking primitive**.
 
 ---
 
-## 📈 Exchange Rate Example
+##  Exchange Rate Example
 
 | Time     | Total sXLM | Total XLM | Exchange Rate | 100 sXLM Worth |
 |----------|------------|-----------|---------------|----------------|
@@ -95,7 +95,7 @@ Stellar currently has **no native liquid staking primitive**.
 
 ---
 
-## 🧪 Live Testnet Deployment
+## Live Testnet Deployment
 
 ### Contracts
 
@@ -112,7 +112,7 @@ Stellar currently has **no native liquid staking primitive**.
 
 ---
 
-## 📊 Protocol Status (Testnet)
+##Protocol Status (Testnet)
 
 - TVL: Live and updating  
 - Exchange Rate: Auto-increasing (simulated yield)  
@@ -122,7 +122,7 @@ Stellar currently has **no native liquid staking primitive**.
 
 ---
 
-## 🖼️ dApp Screenshots
+## dApp Screenshots
 
 ### Wallet Connection & Dashboard
 <img width="2938" src="https://github.com/user-attachments/assets/98735a3a-33f1-4708-a9df-10c974da3e30" />
@@ -132,7 +132,7 @@ Stellar currently has **no native liquid staking primitive**.
 
 ---
 
-## 🛠️ Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -143,7 +143,7 @@ Stellar currently has **no native liquid staking primitive**.
 
 ---
 
-## 🛠️ Build Contracts
+##  Build Contracts
 
 Clone the repository and compile the Soroban smart contracts.
 
@@ -170,7 +170,7 @@ stellar contract optimize \
   --wasm target/wasm32-unknown-unknown/release/vault.wasm
 ```
 ---
-## 🧪 Run Tests
+##  Run Tests
 
 Run the full test suite for the protocol:
 ```
@@ -181,7 +181,7 @@ cargo test
 
 100% coverage on core vault logic
 ---
-## 🌐 Run Frontend Locally
+##  Run Frontend Locally
 
 Navigate to the frontend directory and start the development server.
 ```
@@ -195,7 +195,7 @@ Open the app in your browser:
 http://localhost:3000
 ```
 ---
-## 🧩 CLI Usage
+## CLI Usage
 
 Interact with the protocol directly using the provided scripts.
 
@@ -252,7 +252,7 @@ Add yield to the vault (admin only):
 | total_supply | Total sXLM supply      |
 ---
 
-## 🔐 Security Features
+##  Security Features
 
 Reentrancy protection
 
@@ -269,7 +269,7 @@ Checked arithmetic to prevent overflows
 Automatic TTL extension for storage
 
 ---
-## 🔮 Future Roadmap
+## Future Roadmap
 
 Stellar mainnet deployment
 
@@ -285,6 +285,6 @@ Mobile wallet support
 
 Cross-chain yield opportunities
 ---
-🏁 Goal
+Goal
 
 Become the default liquid staking primitive on Stellar.
